@@ -19,6 +19,8 @@ set showmatch   " highlight matching {[()]}
 " SEARCHING
 set incsearch   " search as characters are entered
 set hlsearch    " highlight matches
+set path+=**
+set wildignore+=**/node_modules/**,**/.git/**
 
 " FOLDING
 set foldenable    " enable folding
@@ -35,3 +37,10 @@ nnoremap gV `[v`]
 " LEADER SHORTCUTS
 " jk is escape
 inoremap jk <esc>
+
+" PLUGINS
+call plug#begin('~/.vim/plugged')
+
+Plug 'pangloss/vim-javascript'
+
+call plug#end()
