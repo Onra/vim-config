@@ -38,9 +38,24 @@ nnoremap gV `[v`]
 " jk is escape
 inoremap jk <esc>
 
+" Emmet config
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
+
+" Run Prettier everytime we save a file
+autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
+Plug 'mattn/emmet-vim'
+
+Plug 'skywind3000/asyncrun.vim'
 call plug#end()
